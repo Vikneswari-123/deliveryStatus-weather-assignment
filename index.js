@@ -43,7 +43,7 @@ async function processOrders() {
                 return order;
             } catch (error) {
                 
-                console.error(`❌ Error for ${order.city}: ${error.response?.data?.message || "City Not Found"}`);
+                console.error(`Error for ${order.city}: ${error.response?.data?.message || "City Not Found"}`);
                 order.status = "Error: City Not Found";
                 return order;
             }
@@ -55,7 +55,7 @@ async function processOrders() {
         
         await fs.writeFile('updated_orders.json', JSON.stringify(updatedOrders, null, 2));
         
-        console.log("\n✨ Mission Complete! Open 'updated_orders.json' to see the apologies.");
+        console.log("Mission Complete! Open 'updated_orders.json' to see the apologies.");
 
     } catch (err) {
         console.error("Critical System Error:", err);
